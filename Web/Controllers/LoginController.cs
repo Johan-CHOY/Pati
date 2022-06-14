@@ -12,7 +12,7 @@ namespace Web.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: Login
+        // GET: Login prueba de git
         public ActionResult Index()
         {
             return View();
