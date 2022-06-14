@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Infraestructure.Models.Usuario>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Crear", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario1)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Activo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoUsuario.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario1)
+        </td>
+        
+        <td>
+            @if (item.Activo == 1)
+            {
+                <p>Activo</p>
+            }
+            else
+            {
+                <p>Desactivado</p>
+
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoUsuario.Descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.IdUsuario }) |
+
+            @if (item.Activo == 1)
+            {
+                @Html.ActionLink("Desactivar", "Delete", new { id = item.IdUsuario })
+            }
+            else
+            {
+                @Html.ActionLink("Activar", "Delete", new { id = item.IdUsuario })
+            }
+        </td>
+    </tr>
+}
+
+</table>

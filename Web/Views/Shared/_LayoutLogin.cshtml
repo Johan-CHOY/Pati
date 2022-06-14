@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <link rel="stylesheet" href="~/Content/EstilosLogin.css" type="text/css" />
+
+    <main class="CentrarContenidoLogin">
+        <div class="container-fluid">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-12 shadow-lg">
+                    <hr/>
+                    <div class="text-center mb-5">
+                        <h2>Bienvenido</h2>
+                    </div>
+
+                    @RenderBody()
+
+                    <br />
+
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/bootstrap-lux")
+    @Scripts.Render("~/bundles/sweetalert")
+    @RenderSection("scripts", required: false)
+    @if (ViewBag.NotificationMessage != null)
+    {
+        <script>
+            @Html.Raw(@ViewBag.NotificationMessage);
+        </script>
+    }
+</body>
+</html>

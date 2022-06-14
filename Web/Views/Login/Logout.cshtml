@@ -1,0 +1,33 @@
+﻿@model Infraestructure.Models.Usuario
+
+@{
+    ViewBag.Title = "Activar";
+    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+}
+
+<hr />
+
+
+    <h2>Desactivar</h2>
+
+
+    <h3>¿Está seguro que desea salir?</h3>
+
+
+
+
+<div>
+
+    <hr />
+   
+
+    @using (Html.BeginForm("Logout", "Login"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Guardar" class="btn btn-primary" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+</div>
